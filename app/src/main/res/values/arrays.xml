@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="notes">
+        <item>Яхт-клуб</item>
+        <item>GeekBrains</item>
+        <item>Налоговая</item>
+        <item>Магазин</item>
+    </string-array>
+
+    <string-array name="task">
+        <item>Провести ТО яхте</item>
+        <item>Сделать домашнее задание</item>
+        <item>Сдать отчетность в налоговой</item>
+        <item>Купить батат и розмарин</item>
+    </string-array>
+
+    <string-array name="date">
+        <item>09.05.2022</item>
+        <item>10.05.2022</item>
+        <item>11.05.2022</item>
+        <item>12.05.2022</item>
+    </string-array>
+
+</resources>
