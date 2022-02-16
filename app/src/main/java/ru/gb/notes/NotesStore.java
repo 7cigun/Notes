@@ -4,14 +4,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class NotesStore implements Parcelable {
-    private String noteName;
-    private String noteDescription;
-    private String noteDate;
+
+    private int index;
+
+    public NotesStore(int i) {
+        index = i;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public static Creator<NotesStore> getCREATOR() {
+        return CREATOR;
+    }
 
     protected NotesStore(Parcel in) {
-        noteName = in.readString();
-        noteDescription = in.readString();
-        noteDate = in.readString();
+        index = in.readInt();
     }
 
     public static final Creator<NotesStore> CREATOR = new Creator<NotesStore>() {
@@ -26,30 +39,6 @@ public class NotesStore implements Parcelable {
         }
     };
 
-    public String getNoteName() {
-        return noteName;
-    }
-
-    public void setNoteName(String noteName) {
-        this.noteName = noteName;
-    }
-
-    public String getNoteDescription() {
-        return noteDescription;
-    }
-
-    public void setNoteDescription(String noteDescription) {
-        this.noteDescription = noteDescription;
-    }
-
-    public String getNoteDate() {
-        return noteDate;
-    }
-
-    public void setNoteDate(String noteDate) {
-        this.noteDate = noteDate;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -57,8 +46,6 @@ public class NotesStore implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(noteName);
-        parcel.writeString(noteDescription);
-        parcel.writeString(noteDate);
+        parcel.writeInt(index);
     }
 }

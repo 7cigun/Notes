@@ -6,5 +6,9 @@
     android:background="@color/purple_200"
     tools:context=".DescriptionFragment">
 
+    <TextView
+        android:id="@+id/descriptionView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>
