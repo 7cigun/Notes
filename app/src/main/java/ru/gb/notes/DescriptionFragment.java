@@ -40,8 +40,9 @@ public class DescriptionFragment extends Fragment {
         note = getArguments().getParcelable(KEY_NOTE);
         TextView descriptionView = new TextView(getContext());
         descriptionView.setTextSize(30f);
-        TypedArray description = getResources().obtainTypedArray(R.array.task);
-        descriptionView.setText(description.getResourceId(note.getIndex(), 0));
+
+        String[] notes = getResources().getStringArray(R.array.task);
+        descriptionView.setText(notes[note.getIndex()]);
         ((LinearLayout) view).addView(descriptionView);
     }
 }
