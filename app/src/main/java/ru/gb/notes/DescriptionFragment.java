@@ -42,7 +42,8 @@ public class DescriptionFragment extends Fragment {
         descriptionView.setTextSize(30f);
 
         String[] notes = getResources().getStringArray(R.array.task);
-        descriptionView.setText(notes[note.getIndex()]);
+        String[] date = getResources().getStringArray(R.array.date);
+        descriptionView.setText((notes[note.getIndex()]) + "\n\n" + (date[note.getIndex()]));
         ((LinearLayout) view).addView(descriptionView);
     }
 }
