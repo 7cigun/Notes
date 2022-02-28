@@ -61,7 +61,9 @@ public class DescriptionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setHasOptionsMenu(true);
+        if(savedInstanceState==null) {
+            setHasOptionsMenu(true);
+        }
         note = getArguments().getParcelable(KEY_NOTE);
         TextView descriptionView = new TextView(getContext());
         descriptionView.setTextSize(30f);
