@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,5 +70,30 @@ public class DescriptionFragment extends Fragment {
         String[] date = getResources().getStringArray(R.array.date);
         descriptionView.setText((notes[note.getIndex()]) + "\n\n" + (date[note.getIndex()]));
         ((LinearLayout) view).addView(descriptionView);
+
+        descriptionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                PopupMenu popupMenu = new PopupMenu(requireContext(),view, Gravity.CENTER);
+                requireActivity().getMenuInflater().inflate(R.menu.popup,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case (R.id.action_popup_clear):{
+                                descriptionView.setText("");
+                                return true;
+                            }
+                            case (R.id.action_popup_exit):{
+                                requireActivity().finish();
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
     }
 }

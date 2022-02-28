@@ -8,4 +8,5 @@
     <string name="exit">exit</string>
     <string name="about_developers">Lamer Corporation</string>
     <string name="toast">toast</string>
+    <string name="clear">clear</string>
 </resources>
