@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@color/teal_700"
-            app:subtitle="List of notes"
+            app:subtitle="@string/subtitle"
             app:subtitleTextColor="#FFFFFFFF"
-            app:title="Main menu"
+            app:title="@string/mainMenu"
             app:titleTextColor="#AAFFFFFF" />
     </com.google.android.material.appbar.AppBarLayout>
 
