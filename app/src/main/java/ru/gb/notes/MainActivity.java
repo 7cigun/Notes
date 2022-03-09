@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.app.AlertDialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_exit: {
-                finish();
+                showAlertDialog();
                 return true;
             }
         }
@@ -57,5 +59,29 @@ public class MainActivity extends AppCompatActivity {
             onBackPressed();
         }
     }
+
+    void showAlertDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Оцените приложение?")
+                .setPositiveButton("Да", (dialogInterface, i) -> {
+                    finish();
+                    showToast("Переходим в Market");
+                })
+                .setNegativeButton("Ни за что", (dialogInterface, i) -> {
+                    finish();
+                    showToast("Очень жаль...");
+                })
+                .setNeutralButton("Возможно, позже...", (dialogInterface, i) -> {
+                    finish();
+                    showToast("Будем ждать снова!");
+                })
+                .show();
+    }
+
+    void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
 
 }
